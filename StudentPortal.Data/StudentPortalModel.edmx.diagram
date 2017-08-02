@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d736469c1d6f4d8ba8cb5a70109fcb28" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="StudentPortalModel.Education" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentPortalModel.Intership" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentPortalModel.Student" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentPortalModel.Teacher" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentPortalModel.Training" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentPortalModel.Workshop" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <AssociationConnector Association="StudentPortalModel.fk_Education_Student_StudId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentPortalModel.fk_Intership_Student_StudId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentPortalModel.fk_Training_Student_StudId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentPortalModel.fk_Workshop_Student_StudId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="StudentPortalModel.Notice" Width="1.5" PointX="8" PointY="5" />
+        <AssociationConnector Association="StudentPortalModel.fk_Notices_Teacher_TeachID" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

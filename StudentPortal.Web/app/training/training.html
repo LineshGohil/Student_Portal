@@ -1,0 +1,76 @@
+﻿S<button id="btn-signup" class="btn btn-info" data-ng-click="internship()">Next</button>
+<div class="container">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Training Detail
+        </div>
+        <form name="Training" class="form-horizontal" role="form" novalidate>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    Technology
+                </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" data-ng-model="getTrainingDetail.Technology" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    Organization
+                </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" data-ng-model="getTrainingDetail.Organization" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                      Location
+                </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" data-ng-model="getTrainingDetail.Location" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    Start Date
+                </label>
+                <div class="col-md-9">
+                    <input type="date" class="form-control" data-ng-model="getTrainingDetail.StartDate" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    End Date
+                </label>
+                <div class="col-md-9">
+                    <input type="Date" class="form-control" data-ng-model="getTrainingDetail.EndDate" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    Project Link
+                </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" data-ng-model="getTrainingDetail.ProjectLink" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    Certificate Link
+                </label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" data-ng-model="getTrainingDetail.Link" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    Training Type
+                </label>
+                <div class="col-md-9">
+                   VT <input type="radio" data-ng-model="getTrainingDetail.TypeOfTraining" value="Vocatilnal Training" />
+                   Non VT <input type="radio" data-ng-model="getTrainingDetail.TypeOfTraining" value="Mid Sem Training"/>
+                </div>
+            </div>
+            <button id="btn-signup" class="btn btn-info" data-ng-click="insert()">Submit</button>
+        </form>
+    </div>
+</div>

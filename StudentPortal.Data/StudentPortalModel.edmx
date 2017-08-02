@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StudentPortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="EID" />
+          </Key>
+          <Property Name="StudId" Type="int" Nullable="false" />
+          <Property Name="TenthMarks" Type="money" />
+          <Property Name="TwelthMarks" Type="money" />
+          <Property Name="TenthLink" Type="nvarchar(max)" />
+          <Property Name="TwelthLink" Type="nvarchar(max)" />
+          <Property Name="PolytechnicMarks" Type="money" />
+          <Property Name="PolytechnicLink" Type="nvarchar(max)" />
+          <Property Name="BEPercentage" Type="money" />
+          <Property Name="FirstSemLink" Type="nvarchar(max)" />
+          <Property Name="SecondSemLink" Type="nvarchar(max)" />
+          <Property Name="ThirdSemLink" Type="nvarchar(max)" />
+          <Property Name="ForthSemLink" Type="nvarchar(max)" />
+          <Property Name="FifthSemLinkk" Type="nvarchar(max)" />
+          <Property Name="SixthSemLink" Type="nvarchar(max)" />
+          <Property Name="SeventhSemLink" Type="nvarchar(max)" />
+          <Property Name="EigthSemLink" Type="nvarchar(max)" />
+          <Property Name="EID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrentBacklog" Type="int" />
+          <Property Name="TotalBacklog" Type="int" />
+        </EntityType>
+        <EntityType Name="Intership">
+          <Key>
+            <PropertyRef Name="IID" />
+          </Key>
+          <Property Name="StudId" Type="int" Nullable="false" />
+          <Property Name="Profilee" Type="nvarchar" MaxLength="50" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="50" />
+          <Property Name="Organization" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ProjectLink" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="IID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notices">
+          <Key>
+            <PropertyRef Name="NID" />
+          </Key>
+          <Property Name="NID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TID" Type="int" />
+          <Property Name="SubOfNotice" Type="varchar" MaxLength="50" />
+          <Property Name="Detail" Type="varchar" MaxLength="500" />
+          <Property Name="PostingDate" Type="date" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudId" />
+          </Key>
+          <Property Name="StudId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sem" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Passward" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="RollNo" Type="nvarchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeachID" />
+          </Key>
+          <Property Name="TeachID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Passward" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="StudId" Type="int" Nullable="false" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="50" />
+          <Property Name="Organization" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="TypeOfTraining" Type="nvarchar" MaxLength="20" />
+          <Property Name="ProjectLink" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Workshop">
+          <Key>
+            <PropertyRef Name="WID" />
+          </Key>
+          <Property Name="StudId" Type="int" Nullable="false" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="50" />
+          <Property Name="Organizer" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoOfDays" Type="int" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfWorkshop" Type="date" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Semester" Type="int" />
+          <Property Name="WID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Education_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Intership_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Intership" Type="Self.Intership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Intership">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Notices_Teacher_TeachID">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="Notices" Type="Self.Notices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeachID" />
+            </Principal>
+            <Dependent Role="Notices">
+              <PropertyRef Name="TID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Training_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Workshop_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Workshop" Type="Self.Workshop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Workshop">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentPortalModelStoreContainer">
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Intership" EntityType="Self.Intership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notices" EntityType="Self.Notices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workshop" EntityType="Self.Workshop" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Education_Student_StudId" Association="Self.fk_Education_Student_StudId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Intership_Student_StudId" Association="Self.fk_Intership_Student_StudId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Intership" EntitySet="Intership" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Notices_Teacher_TeachID" Association="Self.fk_Notices_Teacher_TeachID">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Notices" EntitySet="Notices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Training_Student_StudId" Association="Self.fk_Training_Student_StudId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Training" EntitySet="Training" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Workshop_Student_StudId" Association="Self.fk_Workshop_Student_StudId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Workshop" EntitySet="Workshop" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="EID" />
+          </Key>
+          <Property Name="StudId" Type="Int32" Nullable="false" />
+          <Property Name="TenthMarks" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TwelthMarks" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TenthLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TwelthLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PolytechnicMarks" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PolytechnicLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BEPercentage" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FirstSemLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecondSemLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThirdSemLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ForthSemLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FifthSemLinkk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SixthSemLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeventhSemLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EigthSemLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Student" Relationship="Self.fk_Education_Student_StudId" FromRole="Education" ToRole="Student" />
+          <Property Name="CurrentBacklog" Type="Int32" />
+          <Property Name="TotalBacklog" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Intership">
+          <Key>
+            <PropertyRef Name="IID" />
+          </Key>
+          <Property Name="IID" Type="Int32" Nullable="false" />
+          <Property Name="StudId" Type="Int32" Nullable="false" />
+          <Property Name="Profilee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Technology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ProjectLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Student" Relationship="Self.fk_Intership_Student_StudId" FromRole="Intership" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudId" />
+          </Key>
+          <Property Name="StudId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sem" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passward" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RollNo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Educations" Relationship="Self.fk_Education_Student_StudId" FromRole="Student" ToRole="Education" />
+          <NavigationProperty Name="Interships" Relationship="Self.fk_Intership_Student_StudId" FromRole="Student" ToRole="Intership" />
+          <NavigationProperty Name="Trainings" Relationship="Self.fk_Training_Student_StudId" FromRole="Student" ToRole="Training" />
+          <NavigationProperty Name="Workshops" Relationship="Self.fk_Workshop_Student_StudId" FromRole="Student" ToRole="Workshop" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeachID" />
+          </Key>
+          <Property Name="TeachID" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Passward" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Notices" Relationship="StudentPortalModel.fk_Notices_Teacher_TeachID" FromRole="Teacher" ToRole="Notice" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="Int32" Nullable="false" />
+          <Property Name="StudId" Type="Int32" Nullable="false" />
+          <Property Name="Technology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="TypeOfTraining" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Student" Relationship="Self.fk_Training_Student_StudId" FromRole="Training" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Workshop">
+          <Key>
+            <PropertyRef Name="WID" />
+          </Key>
+          <Property Name="WID" Type="Int32" Nullable="false" />
+          <Property Name="StudId" Type="Int32" Nullable="false" />
+          <Property Name="Technology" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Organizer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfDays" Type="Int32" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfWorkshop" Type="DateTime" Precision="0" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Student" Relationship="Self.fk_Workshop_Student_StudId" FromRole="Workshop" ToRole="Student" />
+          <Property Name="Semester" Type="Int32" />
+        </EntityType>
+        <Association Name="fk_Education_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Intership_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Intership" Type="Self.Intership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Intership">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Training_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Workshop_Student_StudId">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Workshop" Type="Self.Workshop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudId" />
+            </Principal>
+            <Dependent Role="Workshop">
+              <PropertyRef Name="StudId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentPortalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Educations" EntityType="Self.Education" />
+          <EntitySet Name="Interships" EntityType="Self.Intership" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+          <EntitySet Name="Trainings" EntityType="Self.Training" />
+          <EntitySet Name="Workshops" EntityType="Self.Workshop" />
+          <AssociationSet Name="fk_Education_Student_StudId" Association="Self.fk_Education_Student_StudId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Education" EntitySet="Educations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Intership_Student_StudId" Association="Self.fk_Intership_Student_StudId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Intership" EntitySet="Interships" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Training_Student_StudId" Association="Self.fk_Training_Student_StudId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Training" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Workshop_Student_StudId" Association="Self.fk_Workshop_Student_StudId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Workshop" EntitySet="Workshops" />
+          </AssociationSet>
+          <EntitySet Name="Notices" EntityType="StudentPortalModel.Notice" />
+          <AssociationSet Name="fk_Notices_Teacher_TeachID" Association="StudentPortalModel.fk_Notices_Teacher_TeachID">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Notice" EntitySet="Notices" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="NID" />
+          </Key>
+          <Property Name="NID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TID" Type="Int32" />
+          <Property Name="SubOfNotice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PostingDate" Type="DateTime" Precision="0" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Teacher" Relationship="StudentPortalModel.fk_Notices_Teacher_TeachID" FromRole="Notice" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="fk_Notices_Teacher_TeachID">
+          <End Type="StudentPortalModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="StudentPortalModel.Notice" Role="Notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeachID" />
+            </Principal>
+            <Dependent Role="Notice">
+              <PropertyRef Name="TID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentPortalModelStoreContainer" CdmEntityContainer="StudentPortalEntities">
+          <EntitySetMapping Name="Educations">
+            <EntityTypeMapping TypeName="StudentPortalModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="TotalBacklog" ColumnName="TotalBacklog" />
+                <ScalarProperty Name="CurrentBacklog" ColumnName="CurrentBacklog" />
+                <ScalarProperty Name="StudId" ColumnName="StudId" />
+                <ScalarProperty Name="TenthMarks" ColumnName="TenthMarks" />
+                <ScalarProperty Name="TwelthMarks" ColumnName="TwelthMarks" />
+                <ScalarProperty Name="TenthLink" ColumnName="TenthLink" />
+                <ScalarProperty Name="TwelthLink" ColumnName="TwelthLink" />
+                <ScalarProperty Name="PolytechnicMarks" ColumnName="PolytechnicMarks" />
+                <ScalarProperty Name="PolytechnicLink" ColumnName="PolytechnicLink" />
+                <ScalarProperty Name="BEPercentage" ColumnName="BEPercentage" />
+                <ScalarProperty Name="FirstSemLink" ColumnName="FirstSemLink" />
+                <ScalarProperty Name="SecondSemLink" ColumnName="SecondSemLink" />
+                <ScalarProperty Name="ThirdSemLink" ColumnName="ThirdSemLink" />
+                <ScalarProperty Name="ForthSemLink" ColumnName="ForthSemLink" />
+                <ScalarProperty Name="FifthSemLinkk" ColumnName="FifthSemLinkk" />
+                <ScalarProperty Name="SixthSemLink" ColumnName="SixthSemLink" />
+                <ScalarProperty Name="SeventhSemLink" ColumnName="SeventhSemLink" />
+                <ScalarProperty Name="EigthSemLink" ColumnName="EigthSemLink" />
+                <ScalarProperty Name="EID" ColumnName="EID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interships">
+            <EntityTypeMapping TypeName="StudentPortalModel.Intership">
+              <MappingFragment StoreEntitySet="Intership">
+                <ScalarProperty Name="IID" ColumnName="IID" />
+                <ScalarProperty Name="StudId" ColumnName="StudId" />
+                <ScalarProperty Name="Profilee" ColumnName="Profilee" />
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ProjectLink" ColumnName="ProjectLink" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="StudentPortalModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudId" ColumnName="StudId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Passward" ColumnName="Passward" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="StudentPortalModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="TeachID" ColumnName="TeachID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Passward" ColumnName="Passward" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainings">
+            <EntityTypeMapping TypeName="StudentPortalModel.Training">
+              <MappingFragment StoreEntitySet="Training">
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="StudId" ColumnName="StudId" />
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="TypeOfTraining" ColumnName="TypeOfTraining" />
+                <ScalarProperty Name="ProjectLink" ColumnName="ProjectLink" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workshops">
+            <EntityTypeMapping TypeName="StudentPortalModel.Workshop">
+              <MappingFragment StoreEntitySet="Workshop">
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="WID" ColumnName="WID" />
+                <ScalarProperty Name="StudId" ColumnName="StudId" />
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="Organizer" ColumnName="Organizer" />
+                <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="DateOfWorkshop" ColumnName="DateOfWorkshop" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notices">
+            <EntityTypeMapping TypeName="StudentPortalModel.Notice">
+              <MappingFragment StoreEntitySet="Notices">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="SubOfNotice" ColumnName="SubOfNotice" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

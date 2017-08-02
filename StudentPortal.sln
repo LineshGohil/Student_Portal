@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortal.Data", "StudentPortal.Data\StudentPortal.Data.csproj", "{656B2334-DF34-4D2D-B873-9DB4D395ECD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortal.Api", "StudentPortal.Api\StudentPortal.Api.csproj", "{0CF195C8-6A94-453C-9A8D-83BB660CB96E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortal.Web", "StudentPortal.Web\StudentPortal.Web.csproj", "{91121A2E-5D35-48DE-9339-E45610325872}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{656B2334-DF34-4D2D-B873-9DB4D395ECD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656B2334-DF34-4D2D-B873-9DB4D395ECD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656B2334-DF34-4D2D-B873-9DB4D395ECD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656B2334-DF34-4D2D-B873-9DB4D395ECD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF195C8-6A94-453C-9A8D-83BB660CB96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF195C8-6A94-453C-9A8D-83BB660CB96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF195C8-6A94-453C-9A8D-83BB660CB96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF195C8-6A94-453C-9A8D-83BB660CB96E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91121A2E-5D35-48DE-9339-E45610325872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91121A2E-5D35-48DE-9339-E45610325872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91121A2E-5D35-48DE-9339-E45610325872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91121A2E-5D35-48DE-9339-E45610325872}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
