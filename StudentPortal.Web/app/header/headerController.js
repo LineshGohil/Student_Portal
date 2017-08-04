@@ -1,6 +1,7 @@
 ﻿app.controller('headerController', function ($scope, $rootScope, headerService, $location) {
     $rootScope.userData = [];
     $scope.show = true;
+    $scope.student = true;
     $scope.loginData = [];
     $scope.login = function () {
         var a = 1;
@@ -12,7 +13,8 @@
                     $location.path('/Dashboard');
                     $rootScope.userData = value;
                     a = 0;
-                    $scope.show=false
+                    $scope.show = false;
+                    $sccop.student = false;
                 }
                 else if ((a == 1) && ($scope.user.length - 1) == key) {
                     var b = 1;
@@ -22,6 +24,7 @@
                             if (val.Email == $scope.loginData.Email && val.Passward == $scope.loginData.Password) {
                                 $location.path('/Dashboard');
                                 $scope.show = false;
+                                $scope.student = true;
                             }
                             else {
                                 alert("sdsddgd");

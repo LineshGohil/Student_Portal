@@ -5863,7 +5863,8 @@ button.close {
   background: transparent;
   border: 0;
 }
-.modal-open {
+
+-open {
   overflow: hidden;
 }
 .modal {
@@ -5920,7 +5921,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 10;
   background-color: #000;
 }
 .modal-backdrop.fade {
