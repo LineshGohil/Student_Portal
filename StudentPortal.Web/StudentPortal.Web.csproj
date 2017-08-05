@@ -121,6 +121,7 @@
     <Content Include="app\css\bootstrap.min.css" />
     <Content Include="app\css\demo1.css" />
     <Content Include="app\css\footer.css" />
+    <Content Include="app\css\last.css" />
     <Content Include="app\css\mega-navbar.css" />
     <Content Include="app\css\notice.css" />
     <Content Include="app\css\style4.css" />
