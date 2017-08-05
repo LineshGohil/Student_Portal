@@ -14,7 +14,7 @@
                     $rootScope.userData = value;
                     a = 0;
                     $scope.show = false;
-                    $rootScope.student = true;
+                        $rootScope.student = true;
                 }
                 else if ((a == 1) && ($scope.user.length - 1) == key) {
                     var b = 1;
@@ -23,6 +23,7 @@
                         angular.forEach($scope.Teachers, function (val, key) {
                             if (val.Email == $scope.loginData.Email && val.Passward == $scope.loginData.Password) {
                                 $location.path('/Dashboard');
+                                $rootScope.userData = val;
                                 $scope.show = false;
                                 $rootScope.student = false;
                             }
