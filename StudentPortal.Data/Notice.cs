@@ -20,6 +20,7 @@ namespace StudentPortal.Data
         public string Detail { get; set; }
         public Nullable<System.DateTime> PostingDate { get; set; }
         public string Category { get; set; }
+        public string link { get; set; }
     
         public virtual Teacher Teacher { get; set; }
     }

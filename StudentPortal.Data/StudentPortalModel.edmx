@@ -54,6 +54,7 @@
           <Property Name="Detail" Type="varchar" MaxLength="500" />
           <Property Name="PostingDate" Type="date" />
           <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="link" Type="varchar" MaxLength="400" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -386,6 +387,7 @@
           <Property Name="PostingDate" Type="DateTime" Precision="0" />
           <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Teacher" Relationship="StudentPortalModel.fk_Notices_Teacher_TeachID" FromRole="Notice" ToRole="Teacher" />
+          <Property Name="link" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="fk_Notices_Teacher_TeachID">
           <End Type="StudentPortalModel.Teacher" Role="Teacher" Multiplicity="0..1" />
@@ -504,6 +506,7 @@
           <EntitySetMapping Name="Notices">
             <EntityTypeMapping TypeName="StudentPortalModel.Notice">
               <MappingFragment StoreEntitySet="Notices">
+                <ScalarProperty Name="link" ColumnName="link" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
