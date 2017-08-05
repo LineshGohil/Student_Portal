@@ -26,7 +26,7 @@ a:hover{
 }
 
 .navbar-inverse .navbar-brand {
-    color: #0e85eb;
+    color: #41caca;
 }
 
 
@@ -254,8 +254,8 @@ a:hover{
 }
 .btn-primary {
     color: #333;
-    background-color: #0e85eb;
-    border-color: #357ebd;
+    background-color: #41caca;
+    border-color: #00a8b3;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     color: #fff;
