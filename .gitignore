@@ -273,3 +273,7 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/
+StudentPortal.Api/Web.config
+StudentPortal.Data/App.Config
+StudentPortal.Data/StudentPortalModel.Designer.cs
+StudentPortal.Data/StudentPortalModel.Designer.cs
