@@ -14,7 +14,7 @@
                     $rootScope.userData = value;
                     a = 0;
                     $scope.show = false;
-                    $sccop.student = false;
+                    $scope.student = false;
                 }
                 else if ((a == 1) && ($scope.user.length - 1) == key) {
                     var b = 1;

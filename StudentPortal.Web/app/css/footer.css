@@ -3,12 +3,22 @@
 	position: relative;
 	z-index: 5;
     background-color: #3c3d41;
-	padding: 10px 10px;
+	padding: 0px 0px;
 	color: rgba(255,255,255,1.00);
 	margin-bottom: 0px;
 	border-bottom-right-radius: 6px;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 6px;
+}
+.footer-ns{
+    position: relative;
+    left: 750px;
+}
+
+a {
+    color: #41caca;
+    text-decoration: none;
+    font-size: 25px;
 }
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
 .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
@@ -51,4 +61,5 @@
 
 @media (min-width: 768px) {
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
+    
 }
