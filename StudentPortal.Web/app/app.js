@@ -1,6 +1,10 @@
 ﻿var app = angular.module('StudentPortal', ['ngRoute']);
 app.config(function ($routeProvider) {
 
+    $routeProvider.when("/ViewNotice", {
+        controller: "noticeController",
+        templateUrl: "notice/viewNotice.html"
+    });
     $routeProvider.when("/login", {
         controller: "loginController",
         templateUrl: "login/mega-try.html",

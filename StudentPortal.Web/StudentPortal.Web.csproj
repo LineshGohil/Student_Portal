@@ -149,6 +149,8 @@
     <Content Include="app\notice\dashboard.html" />
     <Content Include="app\notice\noticeController.js" />
     <Content Include="app\notice\noticeService.js" />
+    <Content Include="app\notice\viewNotice.html" />
+    <Content Include="app\notice\viewNoticeController.js" />
     <Content Include="app\training\training.html" />
     <Content Include="app\training\trainingController.js" />
     <Content Include="app\training\trainingService.js" />

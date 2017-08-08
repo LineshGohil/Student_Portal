@@ -22,4 +22,13 @@
             alert("Addition Failed");
         });
     }
+    $scope.noticeDetail = [];
+    $scope.view = function (index) {
+        var filter = "?$filter=";
+        filter = filter + "NID eq " + index;
+        alert(filter);
+        noticeService.showNotices(filter).then(function (result) {
+            $scope.noticeDetail = result.data.value;
+        })
+    }
 });

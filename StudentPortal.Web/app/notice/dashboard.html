@@ -101,9 +101,9 @@
                         <tr class="unread">
                             <td class="inbox-small-cells"></td>
                             <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                            <td class="view-message  dont-show">{{data.SubOfNotice}}</td>
+                            <td class="view-message  dont-show">{{data.SubOfNotice}}</td>   
                             <td class="view-message ">{{data.Category}}</td>
-                            <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+                            <td class="view-message  inbox-small-cells"><a class="btn" data-ng-click="view($index)">View</a></td>
                             <td class="view-message  text-right">{{data.PostingDate}}</td>
                         </tr>
                         <!--<tr class="unread">
@@ -303,7 +303,6 @@
     </div>
 </div>
 <!-- Notice --><!-- Notice --><!-- Notice --><!-- Notice --><!-- Notice --><!-- Notice --><!-- Notice --><!-- Notice --><!-- Notice --><!-- Notice -->
-
 
 
 <script src="/../scripts/mega-navbar.js"></script>

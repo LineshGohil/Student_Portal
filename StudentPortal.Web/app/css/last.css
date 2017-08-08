@@ -6,4 +6,10 @@
     left: 0;
     z-index: 100;
     background-color: #000;
+<<<<<<< HEAD
+=======
+}
+.glyphicon {
+    color: #277979;
+>>>>>>> 1e6092e86d5bc5fd6d61451d6694cb759587ba0f
 }

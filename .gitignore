@@ -277,3 +277,7 @@ StudentPortal.Api/Web.config
 StudentPortal.Data/App.Config
 StudentPortal.Data/StudentPortalModel.Designer.cs
 StudentPortal.Data/StudentPortalModel.Designer.cs
+StudentPortal.Web/app/css/blue-register.css
+StudentPortal.Web/app/css/blue-register.css
+StudentPortal.Web/app/css/mega-navbar.css
+StudentPortal.Web/app/css/last.css
