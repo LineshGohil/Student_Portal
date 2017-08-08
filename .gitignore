@@ -275,9 +275,12 @@ __pycache__/
 # tools/
 StudentPortal.Api/Web.config
 StudentPortal.Data/App.Config
+<<<<<<< HEAD
 StudentPortal.Data/StudentPortalModel.Designer.cs
 StudentPortal.Data/StudentPortalModel.Designer.cs
 StudentPortal.Web/app/css/blue-register.css
 StudentPortal.Web/app/css/blue-register.css
 StudentPortal.Web/app/css/mega-navbar.css
 StudentPortal.Web/app/css/last.css
+=======
+>>>>>>> 3be5aa1b74535dededa3814abe3535bc9617000e
