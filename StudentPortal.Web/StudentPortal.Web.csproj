@@ -163,6 +163,8 @@
     <Content Include="Content\mega-navbar.css" />
     <Content Include="Content\style4.css" />
     <Content Include="packages.config" />
+    <Content Include="scripts\angular-local-storage.js" />
+    <Content Include="scripts\angular-local-storage.min.js" />
     <Content Include="scripts\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -172,6 +174,7 @@
     <Content Include="app\css\bootstrap-theme.min.css.map" />
     <Content Include="app\css\bootstrap.css.map" />
     <Content Include="app\css\bootstrap.min.css.map" />
+    <Content Include="scripts\angular-local-storage.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,8 +1,23 @@
-﻿app.controller('headerController', function ($scope, $rootScope, headerService, $location) {
-    $rootScope.userData = [];
+﻿app.controller('headerController', function ($scope, $rootScope, headerService, $location, localStorageService) {
+    $rootScope.userData = {};
     $scope.show = true;
     $rootScope.student = false;
     $scope.loginData = [];
+    $rootScope.$on('updateHeader', function () {
+        if (localStorageService.get('userDetail')) {
+            $rootScope.userData = localStorageService.get('userDetail');
+            $location('/Dashboard');
+            $scope.show = false;
+        }
+    })
+    if (localStorageService.get('check')) {
+        $rootScope.student = localStorageService.get('check');
+    }
+    if (localStorageService.get('userDetail')) {
+        $rootScope.userData = localStorageService.get('userDetail');
+        $scope.show = false;
+    }
+
     $scope.login = function () {
         var a = 1;
         
@@ -11,10 +26,15 @@
             angular.forEach($scope.user, function (value, key) {
                 if (value.Email == $scope.loginData.Email && value.Passward == $scope.loginData.Password) {
                     $location.path('/Dashboard');
-                    $rootScope.userData = value;
+                    localStorageService.set('userDetail', value);
+                    // $rootScope.userData = value;
+                    $rootScope.$broadcast('updateHeader');
+                    
                     a = 0;
                     $scope.show = false;
-                     $rootScope.student = true;
+                    $rootScope.student = true;
+                    localStorageService.set('check', student);
+                    $rootScope.$broadcast('updateStudent');
                 }
                 else if ((a == 1) && ($scope.user.length - 1) == key) {
                     var b = 1;
@@ -39,5 +59,11 @@
             }
         )
         })
+    }
+    $scope.logout = function () {
+        localStorageService.remove('userDetail');
+        $rootScope.userData = {};
+        $location.path('/login');
+        $scope.show = true;
     }
 });

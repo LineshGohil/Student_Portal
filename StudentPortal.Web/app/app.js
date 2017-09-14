@@ -1,4 +1,4 @@
-﻿var app = angular.module('StudentPortal', ['ngRoute']);
+﻿var app = angular.module('StudentPortal', ['ngRoute','LocalStorageModule']);
 app.config(function ($routeProvider) {
 
     $routeProvider.when("/ViewNotice", {

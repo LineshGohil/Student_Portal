@@ -8,10 +8,17 @@
             alert(error);
         });
     }
+    $rootScope.$on('updateHeader', function () {
+        if (localStorageService.get('userDetail')) {
+            $rootScope.userData = localStorageService.get('userDetail');
+            $location('/Dashboard');
+            $scope.show = false;
+        }
+    })
+
     $scope.addNotices = function () {
         var today = new Date();
         var date = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + "0" + today.getDate();
-        alert(date);
         $scope.noticeData.PostingDate = date;
         $scope.noticeData.TID = $rootScope.userData.TeachID;
         noticeService.postNotices($scope.noticeData).then(function (result) {
@@ -26,9 +33,9 @@
     $scope.view = function (index) {
         var filter = "?$filter=";
         filter = filter + "NID eq " + index;
-        alert(filter);
         noticeService.showNotices(filter).then(function (result) {
             $scope.noticeDetail = result.data.value[0];
+            $scope.detail = $scope.noticeDetail.Detail;
         })
     }
 });
