@@ -292,3 +292,8 @@ StudentPortal.Web/app/css/last.css
 StudentPortal.Api/packages.config
 StudentPortal.Web/StudentPortal.Web.csproj
 StudentPortal.Web/Web.Debug.config
+StudentPortal.Api/Web.config
+*.Config
+StudentPortal.Data/App.Config
+StudentPortal.Web/StudentPortal.Web.csproj
+StudentPortal.Web/StudentPortal.Web.csproj
