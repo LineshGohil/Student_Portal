@@ -3,21 +3,26 @@
     $scope.show = true;
     $rootScope.student = false;
     $scope.loginData = [];
+
+
+    //Fetching Data from Local Storage
     $rootScope.$on('updateHeader', function () {
         if (localStorageService.get('userDetail')) {
             $rootScope.userData = localStorageService.get('userDetail');
-            $location('/Dashboard');
+            $location.path('/Dashboard');
             $scope.show = false;
         }
     })
-    if (localStorageService.get('check')) {
-        $rootScope.student = localStorageService.get('check');
-    }
+    //if (localStorageService.get('check')) {
+    //    $rootScope.student = localStorageService.get('check');
+    //}
     if (localStorageService.get('userDetail')) {
         $rootScope.userData = localStorageService.get('userDetail');
         $scope.show = false;
+        $rootScope.student = localStorage.getItem('check');
     }
 
+    //End of local Storage
     $scope.login = function () {
         var a = 1;
         
@@ -26,15 +31,16 @@
             angular.forEach($scope.user, function (value, key) {
                 if (value.Email == $scope.loginData.Email && value.Passward == $scope.loginData.Password) {
                     $location.path('/Dashboard');
+                
                     localStorageService.set('userDetail', value);
                     // $rootScope.userData = value;
                     $rootScope.$broadcast('updateHeader');
-                    
+                    localStorage.setItem('check', 'true');
                     a = 0;
                     $scope.show = false;
                     $rootScope.student = true;
-                    localStorageService.set('check', student);
-                    $rootScope.$broadcast('updateStudent');
+                  //  localStorageService.set('check', student);
+                  //  $rootScope.$broadcast('updateStudent');
                 }
                 else if ((a == 1) && ($scope.user.length - 1) == key) {
                     var b = 1;
@@ -43,11 +49,17 @@
                         angular.forEach($scope.Teachers, function (val, key) {
                             if (val.Email == $scope.loginData.Email && val.Passward == $scope.loginData.Password) {
                                 $location.path('/Dashboard');
-                                $rootScope.userData = val;
+                                localStorageService.set('userDetail', val);
+                                // $rootScope.userData = value;
+                                $rootScope.$broadcast('updateHeader');
+                                localStorage.setItem('check', 'false');
+                               // $rootScope.userData = val;
                                 $scope.show = false;
                                 $rootScope.student = false;
+                                $rootScope.$broadcast('updateHeader');
                             }
                             else {
+                                loginData = [];
                                 alert("Incorrect Credentials");
                             }
                         }, function (err) { alert(err); }
@@ -65,5 +77,6 @@
         $rootScope.userData = {};
         $location.path('/login');
         $scope.show = true;
+        localStorage.clear();
     }
 });

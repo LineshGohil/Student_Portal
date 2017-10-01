@@ -1,4 +1,4 @@
-﻿var app = angular.module('StudentPortal', ['ngRoute','LocalStorageModule']);
+﻿var app = angular.module('StudentPortal', ['ngRoute', 'LocalStorageModule']);
 app.config(function ($routeProvider) {
 
     $routeProvider.when("/ViewNotice", {
@@ -28,6 +28,10 @@ app.config(function ($routeProvider) {
     $routeProvider.when("/Dashboard", {
         controller: "noticeController",
         templateUrl: "notice/dashboard.html",
+    });
+    $routeProvider.when("/NoticeDetail", {
+        controller: "viewNoticeController",
+        templateUrl: "notice/viewNotice.html",
     });
     $routeProvider.otherwise({
 
