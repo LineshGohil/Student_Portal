@@ -285,3 +285,10 @@ StudentPortal.Web/app/css/last.css
 =======
 >>>>>>> 3be5aa1b74535dededa3814abe3535bc9617000e
 *.Config
+*.Config
+*.config
+*.config
+*.config
+StudentPortal.Api/packages.config
+StudentPortal.Web/StudentPortal.Web.csproj
+StudentPortal.Web/Web.Debug.config
