@@ -297,3 +297,4 @@ StudentPortal.Api/Web.config
 StudentPortal.Data/App.Config
 StudentPortal.Web/StudentPortal.Web.csproj
 StudentPortal.Web/StudentPortal.Web.csproj
+*.config
